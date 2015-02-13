@@ -1,0 +1,8 @@
+php:
+  build: ./php
+  ports:
+   - 8080:8080
+web:
+  build: ./nginx
+  ports:
+   - 80:80

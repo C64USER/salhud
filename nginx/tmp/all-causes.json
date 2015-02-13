@@ -1,0 +1,409 @@
+[{
+    "dengue": 1,
+    "pueblo": "Adjuntas",
+    "fips": "1",
+    "percent": 0.005132679772109,
+    "region": "Ponce"
+}, {
+    "dengue": 3,
+    "pueblo": "Aguada",
+    "fips": "3",
+    "percent": 0.0071498367453943,
+    "region": "Aguadilla"
+}, {
+    "dengue": 1,
+    "pueblo": "Aguadilla",
+    "fips": "5",
+    "percent": 0.0016407160084661,
+    "region": "Aguadilla"
+}, {
+    "dengue": 18,
+    "pueblo": "Aguas Buenas",
+    "fips": "7",
+    "percent": 0.06280749502774,
+    "region": "Caguas"
+}, {
+    "dengue": 19,
+    "pueblo": "Anasco",
+    "fips": "11",
+    "percent": 0.064932845767404,
+    "region": "Mayaguez"
+}, {
+    "dengue": 13,
+    "pueblo": "Arecibo",
+    "fips": "13",
+    "percent": 0.013479883865616,
+    "region": "Arecibo"
+}, {
+    "dengue": 24,
+    "pueblo": "Arroyo",
+    "fips": "15",
+    "percent": 0.12260536398467,
+    "region": "Ponce"
+}, {
+    "dengue": 12,
+    "pueblo": "Barceloneta",
+    "fips": "17",
+    "percent": 0.048355899419729,
+    "region": "Arecibo"
+}, {
+    "dengue": 4,
+    "pueblo": "Barranquitas",
+    "fips": "19",
+    "percent": 0.013193482419685,
+    "region": "Bayamon"
+}, {
+    "dengue": 98,
+    "pueblo": "Bayamon",
+    "fips": "21",
+    "percent": 0.047089123373503,
+    "region": "Bayamon"
+}, {
+    "dengue": 68,
+    "pueblo": "Caguas",
+    "fips": "25",
+    "percent": 0.047588055398095,
+    "region": "Caguas"
+}, {
+    "dengue": 7,
+    "pueblo": "Camuy",
+    "fips": "27",
+    "percent": 0.019909553741574,
+    "region": "Arecibo"
+}, {
+    "dengue": 33,
+    "pueblo": "Canovanas",
+    "fips": "29",
+    "percent": 0.069257891202149,
+    "region": "San Juan"
+}, {
+    "dengue": 21,
+    "pueblo": "Carolina",
+    "fips": "31",
+    "percent": 0.011880381529967,
+    "region": "San Juan"
+}, {
+    "dengue": 5,
+    "pueblo": "Catano",
+    "fips": "33",
+    "percent": 0.017768301350391,
+    "region": "Bayamon"
+}, {
+    "dengue": 1,
+    "pueblo": "Cayey",
+    "fips": "35",
+    "percent": 0.0020781811758349,
+    "region": "Caguas"
+}, {
+    "dengue": 2,
+    "pueblo": "Ceiba",
+    "fips": "37",
+    "percent": 0.014672437825545,
+    "region": "Fajardo"
+}, {
+    "dengue": 3,
+    "pueblo": "Ciales",
+    "fips": "39",
+    "percent": 0.01597273985731,
+    "region": "Arecibo"
+}, {
+    "dengue": 1,
+    "pueblo": "Cidra",
+    "fips": "41",
+    "percent": 0.0022999080036799,
+    "region": "Caguas"
+}, {
+    "dengue": 1,
+    "pueblo": "Coamo",
+    "fips": "43",
+    "percent": 0.0024684044233807,
+    "region": "Ponce"
+}, {
+    "dengue": 20,
+    "pueblo": "Comerio",
+    "fips": "45",
+    "percent": 0.096255655019732,
+    "region": "Bayamon"
+}, {
+    "dengue": 3,
+    "pueblo": "Corozal",
+    "fips": "47",
+    "percent": 0.0016971973614238,
+    "region": "Bayamon"
+}, {
+    "dengue": 9,
+    "pueblo": "Dorado",
+    "fips": "51",
+    "percent": 0.023581815799817,
+    "region": "Bayamon"
+}, {
+    "dengue": 4,
+    "pueblo": "Fajardo",
+    "fips": "53",
+    "percent": 0.010812856486362,
+    "region": "Fajardo"
+}, {
+    "dengue": 7,
+    "pueblo": "Florida PR",
+    "fips": "54",
+    "percent": 0.055205047318612,
+    "region": "Arecibo"
+}, {
+    "dengue": 5,
+    "pueblo": "Guayama",
+    "fips": "57",
+    "percent": 0.011022441691283,
+    "region": "Ponce"
+}, {
+    "dengue": 3,
+    "pueblo": "Guayanilla",
+    "fips": "59",
+    "percent": 0.013901116723043,
+    "region": "Ponce"
+}, {
+    "dengue": 26,
+    "pueblo": "Guaynabo",
+    "fips": "61",
+    "percent": 0.026551202973735,
+    "region": "San Juan"
+}, {
+    "dengue": 18,
+    "pueblo": "Gurabo",
+    "fips": "63",
+    "percent": 0.039674667724658,
+    "region": "Caguas"
+}, {
+    "dengue": 5,
+    "pueblo": "Hatillo",
+    "fips": "65",
+    "percent": 0.011918098824875,
+    "region": "Arecibo"
+}, {
+    "dengue": 6,
+    "pueblo": "Humacao",
+    "fips": "69",
+    "percent": 0.010262374713509,
+    "region": "Caguas"
+}, {
+    "dengue": 3,
+    "pueblo": "Isabela",
+    "fips": "71",
+    "percent": 0.0065744778768819,
+    "region": "Aguadilla"
+}, {
+    "dengue": 4,
+    "pueblo": "Jayuya",
+    "fips": "73",
+    "percent": 0.024035572647518,
+    "region": "Ponce"
+}, {
+    "dengue": 7,
+    "pueblo": "Juncos",
+    "fips": "77",
+    "percent": 0.017374038222884,
+    "region": "Caguas"
+}, {
+    "dengue": 1,
+    "pueblo": "Lares",
+    "fips": "81",
+    "percent": 0.0032517152798101,
+    "region": "Arecibo"
+}, {
+    "dengue": 2,
+    "pueblo": "Las Marias",
+    "fips": "83",
+    "percent": 0.020240866309078,
+    "region": "Mayaguez"
+}, {
+    "dengue": 2,
+    "pueblo": "Las Piedras",
+    "fips": "85",
+    "percent": 0.0051712992889463,
+    "region": "Caguas"
+}, {
+    "dengue": 11,
+    "pueblo": "Loiza",
+    "fips": "87",
+    "percent": 0.036593479707252,
+    "region": "San Juan"
+}, {
+    "dengue": 2,
+    "pueblo": "Luquillo",
+    "fips": "89",
+    "percent": 0.0099661152082918,
+    "region": "Fajardo"
+}, {
+    "dengue": 81,
+    "pueblo": "Manati",
+    "fips": "91",
+    "percent": 0.18361934123728,
+    "region": "Arecibo"
+}, {
+    "dengue": 1,
+    "pueblo": "Maunabo",
+    "fips": "95",
+    "percent": 0.0081799591002045,
+    "region": "Caguas"
+}, {
+    "dengue": 16,
+    "pueblo": "Mayaguez",
+    "fips": "97",
+    "percent": 0.017961383026493,
+    "region": "Mayaguez"
+}, {
+    "dengue": 2,
+    "pueblo": "Moca",
+    "fips": "99",
+    "percent": 0.0049864120272258,
+    "region": "Aguadilla"
+}, {
+    "dengue": 30,
+    "pueblo": "Morovis",
+    "fips": "101",
+    "percent": 0.091996320147194,
+    "region": "Arecibo"
+}, {
+    "dengue": 5,
+    "pueblo": "Naguabo",
+    "fips": "103",
+    "percent": 0.018712574850299,
+    "region": "Caguas"
+}, {
+    "dengue": 7,
+    "pueblo": "Naranjito",
+    "fips": "105",
+    "percent": 0.023024800999934,
+    "region": "Bayamon"
+}, {
+    "dengue": 2,
+    "pueblo": "Orocovis",
+    "fips": "107",
+    "percent": 0.0085386158903642,
+    "region": "Bayamon"
+}, {
+    "dengue": 1,
+    "pueblo": "Penuelas",
+    "fips": "111",
+    "percent": 0.0041182769129396,
+    "region": "Ponce"
+}, {
+    "dengue": 5,
+    "pueblo": "Ponce",
+    "fips": "113",
+    "percent": 0.003006126485778,
+    "region": "Ponce"
+}, {
+    "dengue": 1,
+    "pueblo": "Quebradillas",
+    "fips": "115",
+    "percent": 0.0038581735406459,
+    "region": "Arecibo"
+}, {
+    "dengue": 3,
+    "pueblo": "Rincon",
+    "fips": "117",
+    "percent": 0.019736842105263,
+    "region": "Mayaguez"
+}, {
+    "dengue": 6,
+    "pueblo": "Rio Grande",
+    "fips": "119",
+    "percent": 0.011048909840896,
+    "region": "Fajardo"
+}, {
+    "dengue": 1,
+    "pueblo": "Sabana Grande",
+    "fips": "121",
+    "percent": 0.0039580447259054,
+    "region": "Mayaguez"
+}, {
+    "dengue": 2,
+    "pueblo": "Salinas",
+    "fips": "123",
+    "percent": 0.0064354205547333,
+    "region": "Ponce"
+}, {
+    "dengue": 1,
+    "pueblo": "San German",
+    "fips": "125",
+    "percent": 0.0028147606046106,
+    "region": "Mayaguez"
+}, {
+    "dengue": 55,
+    "pueblo": "San Juan(incl. Rio Piedras)",
+    "fips": "127",
+    "percent": 0.013912568361302,
+    "region": "San Juan"
+}, {
+    "dengue": 7,
+    "pueblo": "San Lorenzo",
+    "fips": "129",
+    "percent": 0.017049052559793,
+    "region": "Caguas"
+}, {
+    "dengue": 2,
+    "pueblo": "San Sebastian",
+    "fips": "131",
+    "percent": 0.004713646005185,
+    "region": "Aguadilla"
+}, {
+    "dengue": 2,
+    "pueblo": "Santa Isabel",
+    "fips": "133",
+    "percent": 0.008593280054997,
+    "region": "Ponce"
+}, {
+    "dengue": 17,
+    "pueblo": "Toa Alta",
+    "fips": "135",
+    "percent": 0.022952501822699,
+    "region": "Bayamon"
+}, {
+    "dengue": 18,
+    "pueblo": "Toa Baja(incl. Levittown)",
+    "fips": "137",
+    "percent": 0.020087268019953,
+    "region": "Bayamon"
+}, {
+    "dengue": 25,
+    "pueblo": "Trujillo Alto",
+    "fips": "139",
+    "percent": 0.033403703802678,
+    "region": "San Juan"
+}, {
+    "dengue": 2,
+    "pueblo": "Utuado",
+    "fips": "141",
+    "percent": 0.0060333645057166,
+    "region": "Arecibo"
+}, {
+    "dengue": 5,
+    "pueblo": "Vega Alta",
+    "fips": "143",
+    "percent": 0.012515331280819,
+    "region": "Bayamon"
+}, {
+    "dengue": 43,
+    "pueblo": "Vega Baja",
+    "fips": "145",
+    "percent": 0.072072676075224,
+    "region": "Arecibo"
+}, {
+    "dengue": 4,
+    "pueblo": "Villalba",
+    "fips": "149",
+    "percent": 0.015341541057799,
+    "region": "Ponce"
+}, {
+    "dengue": 3,
+    "pueblo": "Yabucoa",
+    "fips": "151",
+    "percent": 0.0079070135209931,
+    "region": "Caguas"
+}, {
+    "dengue": 1,
+    "pueblo": "Yauco",
+    "fips": "153",
+    "percent": 0.0023785172323573,
+    "region": "Ponce"
+}]

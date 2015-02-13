@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SALHUD</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="vendor/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/css/snackbar.min.css">
+    <link rel="stylesheet" href="vendor/css/material.css">
+    <link rel="stylesheet" href="vendor/css/jquery.remodal.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <section id="sidebar">
+            <div class="sidebar-header">
+                SALHUD
+            </div>
+            <div class="sidebar-item">
+                <i class="fa fa-angle-down fa-lg rounded"></i>
+                <select name="diseases" id="select-disease">
+                    <option selected disabled>SELECT DISEASE</option>
+                    <option value="All Causes of Death" disabled="disabled">All Causes of Death</option>
+                    <option value="Alzeheimer" disabled="disabled">Alzheimer's Disease</option>
+                    <option value="Cancer" disabled="disabled">Cancer</option>
+                    <option value="Cerebrovascular" disabled="disabled">Cerebrovascular Disease</option>
+                    <option value="CLA Respiratory" disabled="disabled">Chronic Lower Airway Respiratory Disease</option>
+                    <option value="Dengue Fever">Dengue Fever</option>
+                    <option value="Diabetes" disabled="disabled">Diabetes</option>
+                    <option value="Heart Disease" disabled="disabled">Heart Disease</option>
+                    <option value="Homicide" disabled="disabled">Homicide</option>
+                    <option value="Other" disabled="disabled">Other Causes</option>
+                    <option value="Pheumonia & Influenza" disabled="disabled">Pneumonia and Influenza</option>
+                    <option value="Renal" disabled="disabled">Renal Disease</option>
+                    <option value="Unitentional Injuries" disabled="disabled">Unintentional Injuries</option>
+                </select>
+            </div>
+            <div class="sidebar-item">
+                <i class="fa fa-angle-down fa-lg rounded"></i>
+                <select name="years" id="select-year">
+                    <option selected disabled>SELECT YEAR</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                </select>
+            </div>
+            <div class="sidebar-item" id="make-map-button">
+                <i class="fa fa-check rounded" id="make-map"></i>
+                <span>MAKE MAP</span>
+            </div>
+            <div id="options">
+                <div class="sidebar-item" id="map-gauge-button">
+                    <i class="fa fa-compass rounded" id="map-gauge"></i>
+                    <span>MAP & GAUGE</span>
+                </div>
+                <div class="sidebar-item" id="regions-button">
+                    <i class="fa fa-bar-chart-o rounded" id="region"></i>
+                    <span>REGIONS</span>
+                </div>
+            </div>
+            <div class="sidebar-footer" data-remodal-target="modal">
+                <i class="fa fa-info rounded" id="about"></i>
+                <span>ABOUT</span>
+            </div>
+        </section>
+
+        <section id="stats">
+            <h2 id="stats-title">DENGUE FEVER</h2>
+            <hr>
+            <div id="map-gauge-view">
+                <div id="map"></div>
+                <div id="gauge-container">
+                    <div id="gauge-legend">
+                        <h4>Legend</h4>
+                        <hr>
+                        <ul>
+                            <li>
+                                <div id="safe-zone"></div> Safe Zone (0 - 25)</li>
+                            <li>
+                                <div id="warning-zone"></div> Warning Zone (50 - 75)</li>
+                            <li>
+                                <div id="danger-zone"></div> Danger Zone (75 - 100)</li>
+                        </ul>
+                    </div>
+                    <div id="gauge-wrapper">
+                        <div id="deathGaugeContainer"></div>
+                        <p id="gauge-description">Gauge Display Percent of Cases Dengue Fever Among Municipality Population</p>
+                    </div>
+                </div>
+            </div>
+            <div id="regions">
+                <p>Histogram of Dengue Fever Based on the Population of Each Region</p>
+                <div id="region-bar-graph"></div>
+                <br>
+                <br>
+                <br>
+                <button class="button button-moreinfo" data-remodal-target="region-info">MORE INFO</button>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="remodal" data-remodal-id="modal">
+        <h1>SALHUD</h1>
+        <img src="img/uprb.png">
+        <img src="img/uprrp.png">
+        <img src="img/RCM.png">
+        <img src="img/SALUD.png">
+        <img src="img/HHS-CDC-sm.png">
+        <br>
+        <br>
+        <a class="remodal-confirm" href="#">OK</a>
+    </div>
+
+    <div class="remodal" data-remodal-id="region-info">
+        <h1>REGION INFO</h1>
+        <a class="remodal-confirm" href="#">OK</a>
+    </div>
+
+    <script src="vendor/js/jquery.min.js"></script>
+    <script src="vendor/js/snackbar.min.js"></script>
+    <script src="vendor/js/jquery.remodal.min.js"></script>
+    <script src="vendor/js/klass.js"></script>
+    <script src="vendor/js/d3.min.js"></script>
+    <script src="vendor/js/atlaspr.js"></script>
+    <script src="vendor/js/gauge.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
