@@ -1,11 +1,11 @@
-FROM eboraas/apache-php
+FROM php:5.6-apache
 
-COPY ./templates/000-default /etc/apache2/sites-enabled/
-COPY ./templates/default /etc/apache2/sites-available/
-COPY ./templates/ports.conf /etc/apache2/
+COPY ./app /var/www/html
 
-RUN  rm /var/www/index.html
+WORKDIR /var/www/html
 
-COPY ./app /var/www/
-
+RUN apt-get update
+RUN apt-get install -y git-core
+RUN php composer.phar install 
+RUN a2enmod rewrite
 RUN service apache2 restart
