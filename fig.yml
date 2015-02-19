@@ -14,7 +14,7 @@ web:
 php:
   build: ./php
   volumes:
-   - ./app:/var/www/html
+   - ./php/app/:/var/www/html/
   links:
    - db
   ports:
