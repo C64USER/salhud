@@ -7,7 +7,7 @@ return [
                 'salhud' => [
                     'adapter'    => 'mysql',
                     'classname'  => 'Propel\Runtime\Connection\ConnectionWrapper',
-                    'dsn'        => 'mysql:host=' . getenv('DB_1_PORT_3306_TCP_ADDR') . ':' . getenv('DB_1_PORT_3306_TCP_PORT')  .  ';dbname=salhud',
+                    'dsn'        => 'mysql:host=localhost;dbname=salhud',
                     'user'       => 'root',
                     'password'   => 'root',
                     'attributes' => []
