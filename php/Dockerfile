@@ -1,11 +1,11 @@
 FROM php:5.6-apache
 
-COPY ./app /var/www/html
+ADD ./app /var/www/html
 
-WORKDIR /var/www/html
-
-RUN apt-get update
-RUN apt-get install -y git-core
-RUN php composer.phar install 
-RUN a2enmod rewrite
-RUN service apache2 restart
+RUN apt-get update && apt-get install -y git-core zlib1g-dev \
+    && docker-php-ext-install pdo pdo_mysql zip \
+    && php composer.phar install && a2enmod rewrite \
+    && service apache2 restart \
+    && ln -s vendor/propel/propel/bin/propel.php propel2
+    && php propel2 sql:build && php propel2 model:build \
+    && php propel2 sql:insert

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="salhud" defaultIdMethod="native">
+  <table name="disease" phpName="Disease">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="name" type="varchar" size="255" required="true" />
+  </table>
+  <table name="region" phpName="Region">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="name" type="varchar" size="255" required="true" />
+    <column name="population" type="integer" required="true" />
+  </table>
+  <table name="town" phpName="Town">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="name" type="varchar" size="255" required="true" />
+    <column name="mapping" type="integer" required="true" />
+    <column name="region_id" type="integer" required="true"/>
+    <foreign-key foreignTable="region" phpName="Region" refPhpName="Region">
+      <reference local="region_id" foreign="id"/>
+    </foreign-key>
+  </table>
+  <table name="case" phpName="Case">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="year" type="integer" required="true" /> 
+    <column name="disease_id" type="integer" required="true"/>
+    <column name="town_id" type="integer" required="true"/>
+    <foreign-key foreignTable="disease" phpName="Disease" refPhpName="Disease">
+      <reference local="disease_id" foreign="id"/>
+    </foreign-key>
+    <foreign-key foreignTable="town" phpName="Town" refPhpName="Town">
+      <reference local="town_id" foreign="id"/>
+    </foreign-key>
+  </table>
+</database>

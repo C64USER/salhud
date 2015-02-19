@@ -1,8 +1,15 @@
-php:
-  build: ./php
-  ports:
-   - 8080:80
+db:
+  image: mysql:5.6
+  environment:
+   - MYSQL_DATABASE=salhud
+   - MYSQL_ROOT_PASSWORD=root
 web:
   build: ./nginx
   ports:
    - 80:80
+php:
+  build: ./php
+  links:
+   - db:db
+  ports:
+   - 8080:80
