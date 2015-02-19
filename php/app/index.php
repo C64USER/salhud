@@ -18,7 +18,7 @@
 // $app->run();
 
 try{
-    $dbh = new pdo( 'mysql:host=localhost;dbname=salhud',
+    $dbh = new pdo( 'mysql:host=' . getenv('DB_1_PORT_3306_TCP_ADDR') . ':'  . getenv('DB_1_PORT_3306_TCP_PORT') . ';dbname=salhud',
                     'root',
                     'root',
                     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
