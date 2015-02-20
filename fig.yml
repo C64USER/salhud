@@ -13,8 +13,6 @@ web:
    - 80:80
 php:
   build: ./php
-  volumes:
-   - ./php/app/:/var/www/html/
   links:
    - db
   ports:
