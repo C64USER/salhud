@@ -22,7 +22,11 @@ try{
                     'root',
                     'root',
                     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    die(json_encode(array('outcome' => true)));
+    $result = $dbh->query("SHOW TABLES");
+
+    while ($row = $result->fetch(PDO::FETCH_NUM)) {
+        echo $row[0]."<br>";
+    }
 }
 catch(PDOException $ex){
     die(json_encode(array('outcome' => false, 'message' => 'Unable to connect')));
