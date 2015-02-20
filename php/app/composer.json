@@ -1,6 +1,7 @@
 {
     "require": {
         "slim/slim": "2.*",
-        "propel/propel": "~2.0@dev"
+        "propel/propel": "~2.0@dev",
+        "vlucas/phpdotenv" : "1.1.0"
     }
 }
