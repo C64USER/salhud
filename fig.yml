@@ -1,19 +1,27 @@
 db:
   image: mysql:5.6
-  volumes:
-   - /var/lib/mysql
+  volumes_from:
+   - data
   environment:
    - MYSQL_DATABASE=salhud
    - MYSQL_ROOT_PASSWORD=root
 web:
   image: nginx
-  volumes:
-   - ./nginx/:/usr/share/nginx/html/
+  volumes_from:
+   - data
   ports:
    - 80:80
 php:
   build: ./php
+  volumes_from:
+   - data
   links:
    - db
   ports:
    - 8080:80
+data:
+  image: busybox
+  volumes:
+   - /var/lib/mysql:/var/lib/mysql
+   - ./php/app/:/var/www/html/
+   - ./nginx/:/usr/share/nginx/html/
