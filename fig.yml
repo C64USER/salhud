@@ -6,7 +6,7 @@ db:
    - MYSQL_DATABASE=salhud
    - MYSQL_ROOT_PASSWORD=root
 web:
-  image: nginx
+  image: nginx:latest
   volumes_from:
    - data
   ports:
@@ -20,8 +20,8 @@ php:
   ports:
    - 8080:80
 data:
-  image: busybox
+  image: busybox:ubuntu-14.04
   volumes:
-   - /var/lib/mysql:/var/lib/mysql
+   - /var/lib/mysql
    - ./php/app/:/var/www/html/
    - ./nginx/:/usr/share/nginx/html/
