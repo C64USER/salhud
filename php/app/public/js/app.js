@@ -9,7 +9,7 @@ $(document).ready(function() {
         year = $('#select-year').val();
 
         if (disease !== null && year !== null) {
-            generateMap(13);
+            generateMap(disease, year);
         } else {
             $.snackbar({
                 content: "Please select a disease and a year before creating the graph.",
@@ -19,11 +19,20 @@ $(document).ready(function() {
         }
     });
 
-    generateMap(13);
+    generateMap(1, 2014);
 
-    createGauge("death", "Pueblo", 0, 100);
+    createGauge("death", "Pueblo", 0, 200);
 
-    d3.json("tmp/region.json", function(data) {
+    $.getJSON("/diseases", function(data) {
+        var items = [];
+        $.each(data, function(k, v) {
+            console.log(data);
+            console.log(v);
+            $("<option value='" + v.id + "'>" + v.name + "</option>").appendTo("#select-disease");
+        });
+    });
+
+    d3.json("/public/tmp/region.json", function(data) {
         dashboard('#region-bar-graph', data);
     });
 
@@ -37,9 +46,11 @@ $(document).ready(function() {
     $('#map-gauge-button').click(function() {
         $("#map-gauge-view").show();
         $('#regions').hide();
-    });    
+    });
 
-    function generateMap(diseaseId) {
+    // generateEpidemicCurve(1, 2014);
+
+    function generateMap(diseaseId, year) {
 
         var my_node = document.getElementById("map");
         my_node.innerHTML = "";
@@ -50,65 +61,65 @@ $(document).ready(function() {
         var map;
 
         //d3.json function to read json files 
-        d3.json("tmp/all-causes.json", function(data) {
+        d3.json("/map/" + diseaseId + "/" + year, function(data) {
 
             //loop for aplication a function to each "pueblo"
             data.forEach(function(pueblo) {
 
                 //id of each "pueblo" for amount of cases
-                var fips_3digits = pueblo.fips.length == 1 ? ("00" + pueblo.fips) : (pueblo.fips.length == 2 ? ("0" + pueblo.fips) : pueblo.fips);
+                var fips_3digits = pueblo.fips.toString().length == 1 ? ("00" + pueblo.fips) : (pueblo.fips.toString().length == 2 ? ("0" + pueblo.fips) : pueblo.fips);
 
                 //id of each "pueblo" for percent of cases
-                var fips_3digits_2 = pueblo.fips.length == 1 ? ("00" + pueblo.fips) : (pueblo.fips.length == 2 ? ("0" + pueblo.fips) : pueblo.fips);
+                var fips_3digits_2 = pueblo.fips.toString().length == 1 ? ("00" + pueblo.fips) : (pueblo.fips.toString().length == 2 ? ("0" + pueblo.fips) : pueblo.fips);
 
                 // select which cause of death to plot
-                var rv;
+                var rv = pueblo.disease;
 
-                switch (Number(diseaseId)) {
+                // switch (Number(diseaseId)) {
 
-                    case 1:
-                        rv = pueblo.ypll;
-                        break;
-                    case 2:
-                        rv = pueblo.cardio;
-                        break;
-                    case 3:
-                        rv = pueblo.tumor;
-                        break;
-                    case 4:
-                        rv = pueblo.diabetes;
-                        break;
-                    case 5:
-                        rv = pueblo.alzheimer;
-                        break;
-                    case 6:
-                        rv = pueblo.cerebrovascular;
-                        break;
-                    case 7:
-                        rv = pueblo.respiratory;
-                        break;
-                    case 8:
-                        rv = pueblo.accident;
-                        break;
-                    case 9:
-                        rv = pueblo.nefritis;
-                        break;
-                    case 10:
-                        rv = pueblo.homicide;
-                        break;
-                    case 11:
-                        rv = pueblo.pneumonia;
-                        break;
-                    case 12:
-                        rv = pueblo.other;
-                        break;
+                //     case 1:
+                //         rv = pueblo.ypll;
+                //         break;
+                //     case 2:
+                //         rv = pueblo.cardio;
+                //         break;
+                //     case 3:
+                //         rv = pueblo.tumor;
+                //         break;
+                //     case 4:
+                //         rv = pueblo.diabetes;
+                //         break;
+                //     case 5:
+                //         rv = pueblo.alzheimer;
+                //         break;
+                //     case 6:
+                //         rv = pueblo.cerebrovascular;
+                //         break;
+                //     case 7:
+                //         rv = pueblo.respiratory;
+                //         break;
+                //     case 8:
+                //         rv = pueblo.accident;
+                //         break;
+                //     case 9:
+                //         rv = pueblo.nefritis;
+                //         break;
+                //     case 10:
+                //         rv = pueblo.homicide;
+                //         break;
+                //     case 11:
+                //         rv = pueblo.pneumonia;
+                //         break;
+                //     case 12:
+                //         rv = pueblo.other;
+                //         break;
 
-                    case 13:
-                        rv = pueblo.dengue;
-                        break; // new disease added
-                        // default : rv = pueblo.ypll; 
+                //     case 13:
+                //         rv = pueblo.dengue;
+                //         break; // new disease added
+                //         // default : rv = pueblo.ypll; 
 
-                } //final of switch
+                // } //final of switch
 
                 datamap[fips_3digits] = rv; // extract json file cases and municipality id
                 datapercent[fips_3digits_2] = pueblo.percent; //extract json file percent and municipality id
@@ -155,13 +166,13 @@ $(document).ready(function() {
 
             //object config of the gauges 
             var config = {
-                    size: 200, //gauges size
-                    label: label, // gauges label
-                    min: undefined != min ? min : 0, // min value of the gauges
-                    max: undefined != max ? max : 100, // max value of the gauges
-                    minorTicks: 5 // tick of gauges
+                size: 200, //gauges size
+                label: label, // gauges label
+                min: undefined !== min ? min : 0, // min value of the gauges
+                max: undefined !== max ? max : 200, // max value of the gauges
+                minorTicks: 5 // tick of gauges
 
-                } //final config
+            }; //final config
 
             var range = config.max - config.min; // range of the gauges for value
 
@@ -240,7 +251,7 @@ $(document).ready(function() {
             var bars = hGsvg.selectAll(".bar")
                 .data(fD).enter()
                 .append("g")
-                .attr("class", "bar")
+                .attr("class", "bar");
 
             //create the rectangles.
             bars.append("rect")
@@ -254,13 +265,13 @@ $(document).ready(function() {
                 .attr("height", function(d) {
                     return hGDim.h - y(d[1]);
                 })
-                .attr('fill', barColor)
-                /* .on("mouseover",mouseover)// mouseover is defined below.
-                 .on("mouseout",mouseout);// mouseout is defined below.*/
+                .attr('fill', barColor);
+            /* .on("mouseover",mouseover)// mouseover is defined below.
+             .on("mouseout",mouseout);// mouseout is defined below.*/
 
             //Create the frequency labels above the rectangles.
             bars.append("text").text(function(d) {
-                    return d3.format(",.2f")(d[1])
+                    return d3.format(",.2f")(d[1]);
                 })
                 .attr("x", function(d) {
                     return x(d[0]) + x.rangeBand() / 2;
@@ -275,8 +286,8 @@ $(document).ready(function() {
             function mouseover(d) {
                     // filter for selected region.
                     var st = fData.filter(function(s) {
-                            return s.region == d[0];
-                        })[0] //,
+                        return s.region == d[0];
+                    })[0]; //,
                 } //final of mouseover
 
             // utility function to be called on mouseout.
@@ -309,12 +320,12 @@ $(document).ready(function() {
                 // transition the frequency labels location and change value.
                 bars.select("text").transition().duration(500)
                     .text(function(d) {
-                        return d3.format(",")(d[1])
+                        return d3.format(",")(d[1]);
                     })
                     .attr("y", function(d) {
                         return y(d[1]) - 5;
                     });
-            }
+            };
             return hG;
         }
 
@@ -336,6 +347,81 @@ $(document).ready(function() {
         //console.log(JSON.stringify(sF));
 
         var hG = histoGram(sF); // create the histogram.
+
+    }
+
+    function generateEpidemicCurve(diseaseId, year) {
+        var margin = {
+                top: 20,
+                right: 20,
+                bottom: 30,
+                left: 50
+            },
+            width = 960 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
+
+        var parseDate = d3.time.format("%d-%b-%y").parse;
+
+        var x = d3.time.scale()
+            .range([0, width]);
+
+        var y = d3.scale.linear()
+            .range([height, 0]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
+
+        var line = d3.svg.line()
+            .x(function(d) {
+                return x(d.date);
+            })
+            .y(function(d) {
+                return y(d.close);
+            });
+
+        var svg = d3.select("#regions").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.tsv("/public/js/data.tsv", function(error, data) {
+            data.forEach(function(d) {
+                d.date = parseDate(d.date);
+                d.close =+ d.close;
+            });
+
+            x.domain(d3.extent(data, function(d) {
+                return d.date;
+            }));
+            y.domain(d3.extent(data, function(d) {
+                return d.close;
+            }));
+
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+
+            svg.append("g")
+                .attr("class", "y axis")
+                .call(yAxis)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end");
+
+            svg.append("path")
+                .datum(data)
+                .attr("class", "line")
+                .attr("d", line);
+        });
 
     }
 

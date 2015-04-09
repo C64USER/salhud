@@ -4,7 +4,7 @@ html, body {
     height: 100%;
     width: 100%;
     font-size: 100%;
-    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     letter-spacing: 0.07em;
     color: #666;
 }
@@ -115,7 +115,7 @@ select {
     color: #666;
     font-weight: 600;
     text-transform: uppercase;
-    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
     letter-spacing: 0.07em;
     cursor: pointer;
 }
@@ -130,7 +130,7 @@ select:focus {
     background-color: #f23a54;
 }
 .remodal, .remodal * {
-    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 .remodal > img {
     width: 150px;
@@ -229,4 +229,20 @@ rect:hover {
     color: #fff;
     background-color: #5bc0de;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
 }

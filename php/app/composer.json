@@ -1,10 +1,5 @@
 {
     "require": {
-        "slim/slim": "2.*",
-        "propel/propel": "~2.0@dev",
-        "vlucas/phpdotenv": "1.1.0"
-    },
-    "autoload": {
-        "classmap": ["generated-classes/"]
+        "slim/slim": "2.*"
     }
 }

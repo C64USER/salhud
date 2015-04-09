@@ -1,0 +1,33 @@
+db:
+  image: mysql:5.6
+  ports:
+   - "3306:3306"
+  volumes_from:
+   - data
+  environment:
+   - MYSQL_DATABASE=salhud
+   - MYSQL_ROOT_PASSWORD=root
+php:
+  build: ./php
+  volumes_from:
+   - data
+  links:
+   - db
+   - memcached
+  ports:
+   - "8080:80"
+memcached:
+  image: memcached
+  ports:
+    - "11211:11211"
+  environment:
+    MEMCACHED_PASS: admin
+web:
+  build: ./nginx
+  ports:
+   - "80:80"
+data:
+  image: busybox:latest
+  volumes:
+   - /var/lib/mysql
+   - php/app/:/var/www/html/

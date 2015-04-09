@@ -4,17 +4,31 @@
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
     <column name="name" type="varchar" size="255" required="true" />
   </table>
+  <table name="population" phpName="Population">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="population" type="integer" required="true" />
+    <column name="year" type="integer" required="true" />
+    <column name="town_id" type="integer" required="true" />
+    <foreign-key foreignTable="town" phpName="Town" refPhpName="Town">
+      <reference local="town_id" foreign="id"/>
+    </foreign-key>
+  </table>
   <table name="region" phpName="Region">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
     <column name="name" type="varchar" size="255" required="true" />
-    <column name="population" type="integer" required="true" />
+    <unique name="unique_name">
+      <unique-column name="name"/>
+    </unique>
   </table>
   <table name="town" phpName="Town">
     <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
     <column name="name" type="varchar" size="255" required="true" />
     <column name="mapping" type="integer" required="true" />
     <column name="region_id" type="integer" required="true"/>
-    <foreign-key foreignTable="region" phpName="Region" refPhpName="Region">
+    <unique name="unique_name">
+      <unique-column name="name"/>
+    </unique>
+    <foreign-key foreignTable="region" phpName="townRegion" refPhpName="tRegion">
       <reference local="region_id" foreign="id"/>
     </foreign-key>
   </table>
@@ -26,7 +40,7 @@
     <foreign-key foreignTable="disease" phpName="Disease" refPhpName="Disease">
       <reference local="disease_id" foreign="id"/>
     </foreign-key>
-    <foreign-key foreignTable="town" phpName="Town" refPhpName="Town">
+    <foreign-key foreignTable="town" phpName="caseTown" refPhpName="cTown">
       <reference local="town_id" foreign="id"/>
     </foreign-key>
   </table>

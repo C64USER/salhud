@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SALHUD</title>
+    <link rel="stylesheet" href="/public/vendor/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/vendor/css/snackbar.min.css">
+    <link rel="stylesheet" href="/public/vendor/css/material.css">
+    <link rel="stylesheet" href="/public/vendor/css/jquery.remodal.css">
+    <link rel="stylesheet" href="/public/css/app.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <section id="sidebar">
+            <div class="sidebar-header">
+                SALHUD
+            </div>
+            <div class="sidebar-item">
+                <i class="fa fa-angle-down fa-lg rounded"></i>
+                <select name="diseases" id="select-disease">
+                    <option selected disabled>SELECT DISEASE</option>
+                </select>
+            </div>
+            <div class="sidebar-item">
+                <i class="fa fa-angle-down fa-lg rounded"></i>
+                <select name="years" id="select-year">
+                    <option selected disabled>SELECT YEAR</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                </select>
+            </div>
+            <div class="sidebar-item" id="make-map-button">
+                <i class="fa fa-check rounded" id="make-map"></i>
+                <span>MAKE MAP</span>
+            </div>
+            <div id="options">
+                <div class="sidebar-item" id="map-gauge-button">
+                    <i class="fa fa-compass rounded" id="map-gauge"></i>
+                    <span>MAP & GAUGE</span>
+                </div>
+                <div class="sidebar-item" id="regions-button">
+                    <i class="fa fa-bar-chart-o rounded" id="region"></i>
+                    <span>REGIONS</span>
+                </div>
+                <div class="sidebar-item" id="curve-button">
+                    <i class="fa fa-bar-chart-o rounded" id="region"></i>
+                    <span>EPIDEMIC CURVE</span>
+                </div>
+            </div>
+            <div class="sidebar-footer" data-remodal-target="modal">
+                <i class="fa fa-info rounded" id="about"></i>
+                <span>ABOUT</span>
+            </div>
+        </section>
+
+        <section id="stats">
+            <h2 id="stats-title">DENGUE FEVER</h2>
+            <hr>
+            <div id="map-gauge-view">
+                <p style="text-align:center;margin-bottom: 0px;">Map Display Amount of Cases Dengue Fever for Each Municipality</p>
+                <table border="1" bordercolor="#000000" style="border:thin;margin:auto;">
+
+                    <tbody>
+                        <tr></tr>
+                        <tr>
+                            <td>
+                                <b>Low</b>
+                                <span style="background-color:#FFF; 
+                width:50xp; 
+                border-left:thin solid #000" ;="">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+                                <span style="background-color:#5ead06; 
+                width:50xp; 
+                border:2xp solid #000;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+                                <span style="background-color:#57a515; 
+                width:50xp; 
+                border:2xp solid #000;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+                                <span style="background-color:#57a71c; 
+                width:50xp; 
+                border:1xp solid #000;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+                                <span style="background-color:#990; 
+                width:50xp; 
+                border:1xp solid #000;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+                                <span style="background-color:#960; 
+                width:50xp; 
+                border:1xp solid #000;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+                                <span style="background-color:#930; 
+                width:50xp; 
+                border:1xp solid #000;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+                                <span style="background-color:#900; 
+                width:50xp; 
+                border:1xp solid #000;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+                                <span style="background-color:#F00; 
+                width:50xp; 
+                border-right:thin solid #000;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span> &nbsp;<b>Max</b>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="map"></div>
+                <div id="gauge-container">
+                    <div id="gauge-legend">
+                        <h4>Legend</h4>
+                        <hr>
+                        <ul>
+                            <li>
+                                <div id="safe-zone"></div> Safe Zone (0 - 50)</li>
+                            <li>
+                                <div id="warning-zone"></div> Warning Zone (50 - 150)</li>
+                            <li>
+                                <div id="danger-zone"></div> Danger Zone (150 - 200)</li>
+                        </ul>
+                    </div>
+                    <div id="gauge-wrapper">
+                        <div id="deathGaugeContainer"></div>
+                        <p id="gauge-description">Gauge Display Percent of Cases Dengue Fever Among Municipality Population</p>
+                    </div>
+                </div>
+            </div>
+            <div id="regions">
+                <p>Histogram of Dengue Fever Based on the Population of Each Region</p>
+                <div id="region-bar-graph"></div>
+                <br>
+                <br>
+                <br>
+                <button class="button button-moreinfo" data-remodal-target="region-info">MORE INFO</button>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="remodal" data-remodal-id="modal">
+        <h1>SALHUD</h1>
+        <img src="/public/img/uprb.png">
+        <img src="/public/img/uprrp.png">
+        <img src="/public/img/RCM.png">
+        <img src="/public/img/SALUD.png">
+        <img src="/public/img/HHS-CDC-sm.png">
+        <br>
+        <br>
+        <a class="remodal-confirm" href="#">OK</a>
+    </div>
+
+    <div class="remodal" data-remodal-id="region-info">
+        <h1>REGION INFO</h1>
+        <a class="remodal-confirm" href="#">OK</a>
+    </div>
+
+    <script src="/public/vendor/js/jquery.min.js"></script>
+    <script src="/public/vendor/js/snackbar.min.js"></script>
+    <script src="/public/vendor/js/jquery.remodal.min.js"></script>
+    <script src="/public/vendor/js/klass.js"></script>
+    <script src="/public/vendor/js/d3.min.js"></script>
+    <script src="/public/vendor/js/atlaspr.js"></script>
+    <script src="/public/vendor/js/gauge.js"></script>
+    <script src="/public/js/app.js"></script>
+
+</body>
+
+</html>
