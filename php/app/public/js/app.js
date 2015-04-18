@@ -10,6 +10,7 @@ $(document).ready(function() {
 
         if (disease !== null && year !== null) {
             generateMap(disease, year);
+            generateEpidemicCurve(disease, year);
         } else {
             $.snackbar({
                 content: "Please select a disease and a year before creating the graph.",
@@ -20,6 +21,7 @@ $(document).ready(function() {
     });
 
     generateMap(1, 2014);
+    generateEpidemicCurve(1, 2014);
 
     createGauge("death", "Pueblo", 0, 200);
 
@@ -37,18 +39,25 @@ $(document).ready(function() {
     });
 
     $('#regions').hide();
+    $('#epidemic-curve').hide();
 
     $('#regions-button').click(function() {
+        $("#epidemic-curve").hide();
         $("#map-gauge-view").hide();
         $('#regions').show();
     });
 
     $('#map-gauge-button').click(function() {
-        $("#map-gauge-view").show();
+        $("#epidemic-curve").hide();
         $('#regions').hide();
+        $("#map-gauge-view").show();
     });
 
-    // generateEpidemicCurve(1, 2014);
+    $('#curve-button').click(function() {
+        $('#regions').hide();
+        $("#map-gauge-view").hide();
+        $("#epidemic-curve").show();
+    });
 
     function generateMap(diseaseId, year) {
 
@@ -360,7 +369,7 @@ $(document).ready(function() {
             width = 960 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
 
-        var parseDate = d3.time.format("%d-%b-%y").parse;
+        var parseDate = d3.time.format("%d-%M-%Y").parse;
 
         var x = d3.time.scale()
             .range([0, width]);
@@ -378,29 +387,28 @@ $(document).ready(function() {
 
         var line = d3.svg.line()
             .x(function(d) {
-                return x(d.date);
+                return x(d.year);
             })
             .y(function(d) {
-                return y(d.close);
+                return y(d.percent);
             });
-
-        var svg = d3.select("#regions").append("svg")
+        $("#epidemic-curve-graph").empty();
+        var svg = d3.select("#epidemic-curve-graph").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.tsv("/public/js/data.tsv", function(error, data) {
-            data.forEach(function(d) {
-                d.date = parseDate(d.date);
-                d.close =+ d.close;
+        d3.json("/curve/" + diseaseId, function(error, data1) {
+            data1.forEach(function(d) {
+                d.year = parseDate("01-01-" + d.year);
+                d.percent = +d.percent;
             });
-
-            x.domain(d3.extent(data, function(d) {
-                return d.date;
+            x.domain(d3.extent(data1, function(d) {
+                return d.year;
             }));
-            y.domain(d3.extent(data, function(d) {
-                return d.close;
+            y.domain(d3.extent(data1, function(d) {
+                return parseFloat(d.percent);
             }));
 
             svg.append("g")
@@ -418,7 +426,7 @@ $(document).ready(function() {
                 .style("text-anchor", "end");
 
             svg.append("path")
-                .datum(data)
+                .datum(data1)
                 .attr("class", "line")
                 .attr("d", line);
         });
