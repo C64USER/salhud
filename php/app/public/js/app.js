@@ -423,7 +423,8 @@ $(document).ready(function() {
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
                 .attr("dy", ".71em")
-                .style("text-anchor", "end");
+                .style("text-anchor", "end")
+                .text("Percent");
 
             svg.append("path")
                 .datum(data1)
