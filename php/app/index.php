@@ -28,7 +28,6 @@ $app->get('/map/:disease_id/:year', function ($disease_id, $year) use ($db, $app
     echo $data;
 });
 
-# todo change query
 $app->get('/curve/:disease_id', function ($disease_id) use ($db, $app, $memcache) {
     $data = $memcache->get('/curve/'+$disease_id);
     if ($data == null) {

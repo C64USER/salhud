@@ -4,7 +4,8 @@ ADD app/composer.json /php/composer.json
 
 WORKDIR /php
 
-RUN apt-get update && apt-get install -y git-core zlib1g-dev mysql-client \
+RUN rm -rf /var/lib/apt/lists/* && apt-get update \
+    && apt-get install -y git-core zlib1g-dev mysql-client \
     && curl -L http://pecl.php.net/get/memcache-2.2.7.tgz | tar zx \
     && mv memcache-2.2.7 /usr/src/php/ext/memcache-2.2.7 \
     && docker-php-ext-install pdo pdo_mysql zip memcache-2.2.7 \

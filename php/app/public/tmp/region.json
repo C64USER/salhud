@@ -1,1 +1,66 @@
-[{"region":"Aguadilla","freq":{"low":0,"mid":"0.30","high":0}},{"region":"Arecibo","freq":{"low":0,"mid":"0.81","high":0}},{"region":"Bayamon","freq":{"low":0,"mid":"0.21","high":0}},{"region":"Caguas","freq":{"low":0,"mid":"1.11","high":0}},{"region":"Fajardo","freq":{"low":0,"mid":"0.19","high":0}},{"region":"Mayaguez","freq":{"low":0,"mid":"0.86","high":0}},{"region":"Ponce","freq":{"low":0,"mid":"0.45","high":0}},{"region":"San Juan","freq":{"low":0,"mid":"0.09","high":0}}]
+[
+  {
+    "region": "Aguadilla",
+    "freq": {
+      "low": 0,
+      "mid": "0.30",
+      "high": 0
+    }
+  },
+  {
+    "region": "Arecibo",
+    "freq": {
+      "low": 0,
+      "mid": "0.81",
+      "high": 0
+    }
+  },
+  {
+    "region": "Bayamon",
+    "freq": {
+      "low": 0,
+      "mid": "0.21",
+      "high": 0
+    }
+  },
+  {
+    "region": "Caguas",
+    "freq": {
+      "low": 0,
+      "mid": "1.11",
+      "high": 0
+    }
+  },
+  {
+    "region": "Fajardo",
+    "freq": {
+      "low": 0,
+      "mid": "0.19",
+      "high": 0
+    }
+  },
+  {
+    "region": "Mayaguez",
+    "freq": {
+      "low": 0,
+      "mid": "0.86",
+      "high": 0
+    }
+  },
+  {
+    "region": "Ponce",
+    "freq": {
+      "low": 0,
+      "mid": "0.45",
+      "high": 0
+    }
+  },
+  {
+    "region": "San Juan",
+    "freq": {
+      "low": 0,
+      "mid": "0.09",
+      "high": 0
+    }
+  }
+]
